@@ -5,6 +5,10 @@ import {
 } from "@mui/icons-material";
 import React, { useEffect } from "react";
 import { useStateValue } from "./StateProvider";
+import {Items} from "./Data";
+import {closestMatch} from "closest-match";
+import { findMatch } from "ksdc";
+//const {useNavigate}
 
 function Header() {
   const [{ cart }, dispatch] = useStateValue();
@@ -26,7 +30,15 @@ function Header() {
 
       <div className="inputBox">
         <SearchRounded className="searchIcon" />
-        <input type="text" placeholder="Search" />
+        <input type="text" placeholder="Search" onKeyPress={(e)=>{
+          if(e.key!=="Enter") return;
+          e.preventDefault();
+          //alert(e.currentTarget.value);
+          const names= Items.map(e=>e.name);
+          //alert(names+":"+e.currentTarget.value)
+          const match=findMatch(names,e.currentTarget.value);
+          alert("The closest food to your search is "+match.bestMatch.reference);
+        }} />  
       </div>
 
       <div className="shoppingCart">
@@ -43,7 +55,7 @@ function Header() {
             alt=""
           />
         </div>
-        <h2 className="userName">Vetrivel Ravi</h2>
+        <h2 className="userName">Bidemi & Victory</h2>
       </div>
 
       <div className="toggleMenu">

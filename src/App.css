@@ -969,3 +969,45 @@ main {
     height: 200px;
   }
 }
+
+.shipping-field{
+  margin:10px;
+}
+
+.shipping-field>input{
+  padding:10px;
+  width:300px;
+}
+
+.shipping-field>label{
+  padding:10px;
+  width:150px;
+  display: block;
+}
+
+#shipping-address-wrapper{
+  margin:70px auto;
+  border:1px solid grey;
+  width:fit-content;
+  padding: 15px;
+}
+
+#shipping-address-wrapper h2{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#shipping-address-wrapper .btn{
+  padding:5px 15px;
+  margin:auto;
+  width:fit-content;
+  border:1px solid grey;
+  border-radius:5px;
+  cursor: pointer;
+}
+
+#shipping-address-wrapper #total{
+  margin:auto;
+  width:fit-content;
+  color:green;
+}
